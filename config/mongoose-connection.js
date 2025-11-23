@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-
+const debug = require('debug')("development:mongoose");
+const config = require('config');
 mongoose
-  .connect("mongodb://localhost:27017/eleganza")
+  .connect(`${config.get("MONGODB_URI")}/eleganza`)
   .then(() => {
-    console.log("connected");
+    debug("connected");
   })
   .catch((err) => {
     console.log(err);
