@@ -1,0 +1,70 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    width: 300px;
+    height: 400px;
+    background: #1a3d64;
+    border-radius: 10px;
+    border: 2px solid #1d546c;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 4px;
+    padding: 30px 15px;
+  }
+  .form-input {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    background-color: #1d546c;
+    border-color: transparent;
+    border-width: 0;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+  .form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #38a3d2;
+    border-color: transparent;
+  }
+  .form-input::placeholder {
+    color: #ffffff;
+    opacity: 0.7;
+    font-weight: lighter;
+  }
+  .form-button {
+    width: 90%;
+    align-self: center;
+    padding: 0.75rem;
+    margin-top: 2rem;
+    color: #ffffff;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    background-color: #1d546c;
+    border-radius: 1000px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .form-button:hover {
+    background-color: #38a3d2;
+  }
+
+  .form-button:focus {
+    box-shadow: 0 0 0 2px #2563eb;
+  }
+  
+}

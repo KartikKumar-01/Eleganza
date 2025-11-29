@@ -1,8 +1,9 @@
 const express = require('express');
+const isLoggedIn = require('../middlewares/isLoggedIn');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send("product");
+router.get('/', isLoggedIn,(req, res) => {
+    res.render('products');
 })
 
 module.exports = router;

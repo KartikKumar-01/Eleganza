@@ -1,10 +1,10 @@
-import userModel from "../models/user-model";
+const userModel = require("../models/user-model");
 
 const jwt = require("jsonwebtoken");
 
 const isLoggedIn = async (req, res, next) => {
   if (!req.cookies.token) {
-    req.flash("Error", "You need to login first");
+    req.flash("error", "You need to login first");
     return res.redirect("/");
   }
 
@@ -18,7 +18,9 @@ const isLoggedIn = async (req, res, next) => {
 
     next();
   } catch (err) {
-    req.flash("Error", "Something went wrong");
+    req.flash("error", "Something went wrong");
     res.redirect("/");
   }
 };
+
+module.exports = isLoggedIn;

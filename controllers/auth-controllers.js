@@ -17,9 +17,8 @@ const registerUser = async (req, res) => {
 
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
-      return res
-        .status(409)
-        .json({ success: false, message: "User already exists. Please login" });
+      req.flash("error", "You already have an account. Please")
+      return res.redirect('/');
     }
 
     bcrypt.genSalt(10, (err, salt) => {
@@ -38,11 +37,8 @@ const registerUser = async (req, res) => {
 
         let token = generateToken(newUser);
         res.cookie("token", token);
-        return res.status(201).json({
-          success: true,
-          message: "User created successfully",
-          user: newUser,
-        });
+        req.flash("success", "Account created successfully.")
+        return res.redirect("/products");
       });
     });
   } catch (err) {
@@ -83,10 +79,7 @@ const loginUser = async (req, res) => {
     let token = generateToken(user);
     res.cookie("token", token);
 
-    return res.status(200).json({
-      success: true,
-      message: "Login successful",               
-    });
+    return res.redirect("/products");
 
   } catch (err) {
     console.error(err.message);
@@ -97,4 +90,20 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("token")
+    res.redirect('/').json({
+      succes: true
+    })
+
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
+
+module.exports = { registerUser, loginUser, logoutUser };
