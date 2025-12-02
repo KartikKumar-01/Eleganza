@@ -8,8 +8,5 @@ router.get("/", (req, res) => {
     error: req.flash("error"),
   });
 });
-router.get('/shop', isLoggedIn, (req, res) => {
-    res.render('shop')
-})
 
 module.exports = router

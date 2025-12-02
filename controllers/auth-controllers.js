@@ -54,31 +54,26 @@ const loginUser = async (req, res) => {
   try {
     const { error } = loginSchema.validate(req.body);
     if (error) {
-      return res
-        .status(400)
-        .json({ success: false, message: error.details[0].message });
+      req.flash("error", error.details[0].message);
+      return res.redirect("/");
     }
     const { email, password } = req.body;
 
     let user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "Email or password incorrect",
-      });
+      req.flash("error", "Email or password incorrect. Please try again.");
+      return res.redirect("/");
     }
 
     let isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({
-        success: false,
-        message: "Email or password incorrect",
-      });
+      req.flash("error", "Something went wrong. Please try again.");
+      return res.redirect("/")
     }
 
     let token = generateToken(user);
     res.cookie("token", token);
-
+    req.flash("success", "Login successful.")
     return res.redirect("/products");
 
   } catch (err) {
@@ -93,6 +88,7 @@ const loginUser = async (req, res) => {
 const logoutUser = async (req, res) => {
   try {
     res.clearCookie("token")
+    req.flash("success", "Successfully logged out.")
     res.redirect('/').json({
       succes: true
     })

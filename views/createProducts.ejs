@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-primary">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eleganza</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="container bg-primary text-accent">
+      <div class="main">
+        <div class="navbar">
+          <div class="nav-left">
+            <div class="nav-img">
+              <img
+                class="h-full rounded-[20px]"
+                src="/images/Logo.png"
+                alt=""
+              />
+            </div>
+            <div class="msg">
+              <p class="text-3xl font-medium">Admin Panel.</p>
+            </div>
+          </div>
+          <div class="nav-right">
+            <div class="nav-profile-info bg-secondary">
+              <div class="nav-profile-img">
+                <img
+                  class="w-full h-full rounded-[100%]"
+                  src="/images/default.jpeg"
+                  alt=""
+                />
+              </div>
+              <div class="profile-name">
+                <p>Kartik</p>
+              </div>
+            </div>
+            <button class="nav-btn">Log out</button>
+          </div>
+        </div>
+
+        <div class="console">
+          <div class="console-left">
+            <a href="/admin" class="text-zinc-400">All Products</a>
+            <a href="/admin/product/create">Create New Product</a>
+          </div>
+          <div class="console-right">
+            <h1 class="text-3xl font-medium">Create New Product</h1>
+            <div class="product-details">
+              <h1 class="text-2xl font-medium tracking-tighter mb-6">
+                Product Details
+              </h1>
+              <form
+                autocomplete="off"
+                action="/admin/product/create"
+                enctype="multipart/form-data"
+                class="form-product-details flex flex-col"
+                method="post"
+              >
+                <div class="mb-5">
+                  <label class="font-medium">Product Image</label>
+                  <label
+                    class="cursor-pointer bg-blue-500 text-white px-5 py-2 rounded-full shadow hover:bg-blue-600"
+                  >
+                    Select File
+                    <input type="file" name="image" class="hidden" />
+                  </label>
+                </div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Product Name"
+                  class="w-2/5 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 mb-4 focus:outline-none"
+                />
+                <div class="flex gap-4 mb-6">
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="Product Price"
+                    class="w-1/6 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none"
+                  />
+
+                  <input
+                    type="number"
+                    name="discount"
+                    placeholder="Discount Price"
+                    class="w-1/6 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none"
+                  />
+                </div>
+                <h1 class="text-2xl font-medium tracking-tighter mb-6 blocks">
+                  Product Details
+                </h1>
+                <div class="panel-details">
+                  <div class="flex flex-col w-1/4">
+                    <label
+                      for="panelColor"
+                      class="text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Select Panel Color
+                    </label>
+
+                    <select
+                      id="panelColor"
+                      name="panelColor"
+                      class="w-full px-4 py-3 rounded-lg text-gray-400 bg-gray-100 border border-gray-200 focus:outline-none"
+                    >
+                      <option value="">Choose an option</option>
+                      <option value="#C9D0D8">Soft Cool Gray</option>
+                      <option value="#D4CFC4">Warm Taupe</option>
+                      <option value="#2F3A45">Charcoal Gray</option>
+                      <option value="#D7E4F2">Light Cool Blue</option>
+                      <option value="#D8E2D0">Light Sage</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col w-1/4">
+                    <label
+                      for="footerColor"
+                      class="text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Select Footer Color
+                    </label>
+
+                    <select
+                      id="footerColor"
+                      name="footerColor"
+                      class="w-full px-4 py-3 rounded-lg text-gray-400 bg-gray-100 border border-gray-200 focus:outline-none"
+                    >
+                      <option value="">Choose an option</option>
+                      <option value="#A8BDD8">Powder Blue</option>
+                      <option value="#B8A999">Dusty Brown</option>
+                      <option value="#4C6273">Steel Blue</option>
+                      <option value="#AFC9E8">Baby Blue</option>
+                      <option value="#1E3A19">Deep Forest</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col w-1/4">
+                    <label
+                      for="fontColor"
+                      class="text-sm font-medium mb-1  text-gray-700"
+                    >
+                      Select Font Color
+                    </label>
+
+                    <select
+                      id="fontColor"
+                      name="fontColor"
+                      class="w-full px-4 py-3 rounded-lg text-gray-400 bg-gray-100 border border-gray-200 focus:outline-none"
+                    >
+                      <option value="">Choose an option</option>
+                      <option value="#1F2937">Midnight Gray</option>
+                      <option value="#3B2F2F">Deep Espresso</option>
+                      <option value="#F5F5F5">Soft Off-White</option>
+                      <option value="#0F1A2E">Dark Navy</option>
+                      <option value="#1E3A19">Deep Forest</option>
+                    </select>
+                  </div>
+                  
+                </div>
+                <button
+                  type="submit"
+                  class="w-1/5 bg-black text-white py-3 rounded-lg hover:bg-gray-900 transition"
+                >
+                  Create Product
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascript/flash.js"></script>
+  </body>
+</html>

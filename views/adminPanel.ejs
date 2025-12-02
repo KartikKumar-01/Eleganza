@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-primary">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eleganza</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="container bg-primary text-accent">
+      <div class="main">
+        <% if (success && success.length > 0) { %>
+  <div class="flash flash-success"><%= success %></div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <div class="flash flash-error"><%= error %></div>
+<% } %>
+        <div class="navbar">
+          <div class="nav-left">
+            <div class="nav-img">
+              <img
+                class="h-full rounded-[20px]"
+                src="/images/Logo.png"
+                alt=""
+              />
+            </div>
+            <div class="msg">
+              <p class="text-3xl font-medium">Admin Panel.</p>
+            </div>
+          </div>
+          <div class="nav-right">
+            <div class="nav-profile-info bg-secondary">
+              <div class="nav-profile-img">
+                <img
+                  class="w-full h-full rounded-[100%]"
+                  src="/images/default.jpeg"
+                  alt=""
+                />
+              </div>
+              <div class="profile-name">
+                <p>Kartik</p>
+              </div>
+            </div>
+            <button class="nav-btn">Log out</button>
+          </div>
+        </div>
+
+        <div class="console">
+          <div class="console-left">
+            <a href="/admin">All Products</a>
+            <a href="/admin/product/create" class="text-zinc-400">Create New Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascript/flash.js"></script>
+  </body>
+</html>

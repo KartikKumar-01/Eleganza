@@ -68,7 +68,7 @@
           </form>
         </div>
         <div
-          class="circle flex items-center justify-center rounded-[100%] self-center bg-secondary w-[70px] h-[70px]"
+          class="circle flex items-center justify-center rounded-[100%] self-center w-[70px] h-[70px]"
         >
           <p class="font-semibold text-[25px]">OR</p>
         </div>
@@ -98,17 +98,6 @@
         </div>
       </div>
     </div>
-    <script>
-  // Auto-hide flash messages after 3 seconds
-  setTimeout(() => {
-    document.querySelectorAll('.flash').forEach(flash => {
-      flash.style.opacity = "0";
-      flash.style.transform = "translateY(-10px)";
-      flash.style.transition = "0.4s ease";
-      setTimeout(() => flash.remove(), 400);
-    });
-  }, 3000);
-</script>
-
+    <script src="/javascript/flash.js"></script>
   </body>
 </html>

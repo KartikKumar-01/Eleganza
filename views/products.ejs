@@ -14,9 +14,16 @@
 
   <body>
     <div class="container bg-primary text-accent">
+      <% if (success && success.length > 0) { %>
+  <div class="flash flash-success"><%= success %></div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <div class="flash flash-error"><%= error %></div>
+<% } %>
       <div class="main">
         <div class="navbar">
-          <div class="left">
+          <div class="nav-left">
             <div class="nav-img">
               <img
                 class="h-full rounded-[20px]"
@@ -28,7 +35,7 @@
               <p class="text-3xl">Welcome, Kartik</p>
             </div>
           </div>
-          <div class="right">
+          <div class="nav-right">
             <div class="nav-profile-info bg-secondary">
               <div class="nav-profile-img">
                 <img
@@ -50,21 +57,37 @@
 
             </div>
             <div class="products">
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
-                <div class="product"></div>
+              <% products.forEach((product) => { %>
+                
+                <div class="product" style="background-color: <%= product.panelColor %>; color: <%= product.fontColor %>">
+                  <div class="w-[92%] h-[70%] bg-slate-50 m-[5px]  object-contain">
+                    <img class="w-full h-full object-cover " src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
+                  </div>
+                  <div class="w-full h-[25%] p-3 flex justify-between" style="background-color: <%= product.footerColor %>">
+                    <div class="info font-medium flex flex-col">
+                      <span><%= product.name %></span>
+                      <span class="text-sm">₹ <%= product.price %></span>
+                    </div>
+                  </div>
+                </div>
 
+              <% }) %>
+
+              <!-- <div class="product">
+                  <div class="w-[92%] h-[70%] bg-slate-50 m-[5px] object-contain">
+                    <img class="w-full h-full object-cover" src="" alt="">
+                  </div>
+                  <div class="w-full h-[25%] p-3 bg-tertiary flex justify-between">
+                    <div class="info font-medium flex flex-col">
+                      <span>Sweatshirt</span>
+                      <span class="text-sm">₹ <%= 2000 %></span>
+                    </div>
+                  </div>
+                </div> -->
             </div>
         </div>
       </div>
     </div>
+    <script src="/javascript/flash.js"></script>
   </body>
 </html>

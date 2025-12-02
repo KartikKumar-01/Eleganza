@@ -7,7 +7,7 @@
   .card {
     width: 300px;
     height: 400px;
-    background: #1a3d64;
+    background: #8FABD4;
     border-radius: 10px;
     border: 2px solid #1d546c;
     display: flex;
@@ -23,7 +23,7 @@
     color: #ffffff;
     font-size: 1.125rem;
     line-height: 1.75rem;
-    background-color: #1d546c;
+    background-color: #4A70A980;
     border-color: transparent;
     border-width: 0;
     transition-property: color, background-color, border-color,
@@ -51,7 +51,7 @@
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 500;
-    background-color: #1d546c;
+    background-color: #4A70A980;
     border-radius: 1000px;
     outline: none;
     border: none;

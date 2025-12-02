@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const adminModel = require("../models/admin-model");
+const { createProduct } = require("../controllers/admin-controller");
+const { upload } = require("../config/multer-config");
+const validateProduct = require("../middlewares/validateProduct");
 
 if (process.env.NODE_ENV === "development") {
   router.post("/create", async (req, res) => {
@@ -22,7 +25,19 @@ if (process.env.NODE_ENV === "development") {
 }
 
 router.get("/", (req, res) => {
-  res.send("Hello");
+  res.render("adminPanel", {
+    success: req.flash("success"),
+    error: req.flash("error"),
+  });
 });
+
+router.get("/product/create", (req, res) => {
+  res.render("createProducts", {
+    success: req.flash("success"),
+    error: req.flash("error"),
+  });
+});
+
+router.post("/product/create", upload.single('image'), validateProduct, createProduct)
 
 module.exports = router;

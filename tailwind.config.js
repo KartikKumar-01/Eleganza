@@ -7,10 +7,10 @@ module.exports = {
         sans: ["Poppins", "sans-serif"],
       },
       colors: {
-        primary: "#0C2B4E",
-        secondary: "#1A3D64",
-        tertiary: "#1D546C",
-        accent: "#F4F4F4",
+        primary: "#EFECE3",
+        secondary: "#4A70A9",
+        tertiary: "#8FABD4",
+        accent: "#000000",
       },
       backgroundImage: {
         "radial-blue": "radial-gradient(circle, #1D546C 0%, #38A3D2 100%)",
